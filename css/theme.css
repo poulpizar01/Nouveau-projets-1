@@ -1,0 +1,89 @@
+/* =============================================================
+   OIL ROXWOOD — Projet 1
+   theme.css · direction « Néon nocturne »
+   Tous les jetons de design. Ne rien coder en dur ailleurs :
+   si une couleur ou une taille manque, on l'ajoute ICI.
+   ============================================================= */
+
+:root{
+  color-scheme: dark;
+
+  /* --- Fond ------------------------------------------------- */
+  --bg-base:#0A0817;
+  --bg-deep:#120E24;
+  --bg-tint:#0C0A1B;
+  /* halo violet en haut à droite, halo cyan en bas à gauche */
+  --bg-scene:
+    radial-gradient(110% 70% at 88% -8%, rgba(139,92,246,.30), transparent 60%),
+    radial-gradient(80% 60% at 6% 104%, rgba(0,166,192,.20), transparent 62%),
+    linear-gradient(170deg, var(--bg-deep), var(--bg-base) 62%, var(--bg-tint));
+
+  /* --- Surfaces (verre dépoli) ------------------------------ */
+  --glass:rgba(255,255,255,.045);
+  --glass-2:rgba(255,255,255,.075);
+  --glass-3:rgba(255,255,255,.11);
+  --stroke:rgba(255,255,255,.085);
+  --stroke-2:rgba(255,255,255,.15);
+
+  /* --- Encre ------------------------------------------------ */
+  --ink:#EDE9FA;
+  --ink-2:#A9A0CE;
+  --ink-3:#6F669A;
+
+  /* --- Accents ---------------------------------------------- */
+  --violet:#8B5CF6;
+  --violet-lt:#C4B0FF;
+  --magenta:#D4467F;
+  --magenta-lt:#FF9AC8;
+  --cyan:#00A6C0;
+  --cyan-lt:#7FE3F5;
+  --grad-accent:linear-gradient(96deg, var(--violet), var(--magenta));
+  --grad-text:linear-gradient(96deg, var(--violet-lt), var(--magenta-lt));
+
+  /* --- Série de données ---------------------------------------
+     Palette catégorielle validée : bande de luminosité, écart
+     daltonien et contraste vérifiés sur ce fond. Assigner dans
+     cet ordre, ne jamais boucler au-delà de 4.                  */
+  --serie-1:#8B5CF6;
+  --serie-2:#00A6C0;
+  --serie-3:#D4467F;
+  --serie-4:#AE8318;
+  /* trait et remplissage des courbes */
+  --line:#B58CFF;
+  --line-glow:rgba(181,140,255,.28);
+  --fill-top:rgba(139,92,246,.40);
+  --fill-bottom:rgba(139,92,246,0);
+
+  /* --- États ------------------------------------------------ */
+  --ok:#46A758;      --ok-lt:#8FD79B;
+  --warn:#E5A00D;    --warn-lt:#F0C558;
+  --crit:#E0533D;    --crit-lt:#F0968A;
+  --info:#5C74D8;    --info-lt:#A7B4F0;
+
+  /* --- Typographie ------------------------------------------ */
+  --font-display:'Chakra Petch', system-ui, sans-serif;         /* titres, étiquettes */
+  --font-text:'Rubik', system-ui, -apple-system, sans-serif;    /* texte courant */
+  --font-num:'JetBrains Mono', ui-monospace, Menlo, monospace;  /* tous les chiffres */
+
+  --fs-xs:10.5px; --fs-sm:12.5px; --fs-md:14px; --fs-lg:19px; --fs-xl:28px;
+  --ls-label:.14em;   /* interlettrage des étiquettes en capitales */
+
+  /* --- Géométrie -------------------------------------------- */
+  --r-sm:9px; --r-md:12px; --r-lg:16px; --r-pill:99px;
+  --gap:13px;
+  --rail-w:244px;
+  --top-h:62px;
+
+  /* --- Ombres et lueurs ------------------------------------- */
+  --shadow-card:0 20px 40px -30px #000;
+  --shadow-hero:0 24px 50px -26px rgba(139,92,246,.75);
+  --glow-accent:0 10px 26px -10px rgba(139,92,246,.9);
+  --glow-line:0 0 16px rgba(212,70,127,.55);
+
+  --t-fast:.12s ease;
+  --t-slow:.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}

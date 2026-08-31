@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oil Roxwood — Espace membre</title>
+<meta name="description" content="Tableau de bord Oil Roxwood, direction « Néon nocturne ».">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Rubik:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ========================= RAIL LATÉRAL ========================= -->
+  <aside class="rail">
+    <div class="brand">
+      <div class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3c1 3.2 3.6 4.4 3.6 7.4A3.6 3.6 0 0 1 8.4 11c0-1 .4-2 1.1-2.8"/>
+          <path d="M12 21a5 5 0 0 0 5-5c0-2-1-3-1-3"/>
+        </svg>
+      </div>
+      <div class="brand__text">
+        <p class="brand__name">Oil Roxwood</p>
+        <p class="brand__sub">Espace membre</p>
+      </div>
+    </div>
+
+    <!-- Navigation générée depuis la constante NAV (js/app.js) -->
+    <div class="rail__scroll" id="nav"></div>
+
+    <div class="rail__foot">
+      <span class="who__avatar">DH</span>
+      <span class="who__text">
+        <b class="who__name">Diego Herrera</b>
+        <span class="who__role">Direction</span>
+      </span>
+    </div>
+  </aside>
+
+  <!-- ========================= COLONNE PRINCIPALE ========================= -->
+  <div class="main">
+    <header class="topbar">
+      <div class="topbar__row">
+        <h1 class="topbar__title" id="pageTitle">Vue d'ensemble</h1>
+        <span class="topbar__sub" id="pageSub"></span>
+        <span class="spacer"></span>
+
+        <button class="search" type="button" id="openSearch">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+          <span class="search__ph">Rechercher un expert, un run, une facture…</span>
+          <kbd>⌘K</kbd>
+        </button>
+
+        <div class="period">
+          <button type="button" aria-label="Semaine précédente">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 6-6 6 6 6"/></svg>
+          </button>
+          <span class="period__label" id="weekLabel">Semaine</span>
+          <button type="button" aria-label="Semaine suivante">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <button class="btn btn--icon" type="button" aria-label="Alertes">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8a6 6 0 1 0-12 0c0 7-2 8-2 8h16s-2-1-2-8"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/>
+          </svg>
+          <span class="count">4</span>
+        </button>
+
+        <button class="btn btn--primary" type="button">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 16V4"/><path d="m7 9 5-5 5 5"/><path d="M4 17v2a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-2"/>
+          </svg>
+          Publier sur le site
+        </button>
+      </div>
+
+      <!-- avancement de l'objectif de la semaine, toujours visible -->
+      <div class="pipeline" title="Avancement de l'objectif de la semaine"><i id="pipelineFill"></i></div>
+    </header>
+
+    <!-- Contenu injecté par js/app.js -->
+    <main class="content" id="view"></main>
+  </div>
+
+</div>
+
+<!-- ========================= BARRE D'ÉTAT ========================= -->
+<div class="statusbar">
+  <span><i class="led"></i> <b>Dépôt Roxwood</b> — en service</span>
+  <span><i class="led"></i> Colonne C-201 · 4,2 bar</span>
+  <span><i class="led led--warn"></i> Torchère · maintenance prévue 02/09</span>
+  <span>Débit instantané <b id="flowRate">—</b></span>
+  <span>Dernière synchro <b>il y a 12 s</b></span>
+  <span><i class="led led--crit"></i> 1 alarme active</span>
+  <span style="margin-left:auto">Projet 1 · v1.0</span>
+</div>
+
+<!-- Infobulle des graphiques -->
+<div class="tooltip" id="tooltip"></div>
+
+<!-- Recherche rapide -->
+<div class="scrim" id="palette" hidden>
+  <div class="cmd" role="dialog" aria-label="Recherche rapide">
+    <input id="cmdInput" placeholder="Aller à… (écran, expert, facture, run)" autocomplete="off">
+    <div class="cmd__results" id="cmdResults"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
